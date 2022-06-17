@@ -1,0 +1,105 @@
+create table users(
+user_id SERIAL PRIMARY KEY,
+user_name varchar(255) Not Null Unique,
+mail varchar(255) Not Null Unique,
+password varchar(255) Not Null,
+sex integer Not Null,
+birth date Not Null,
+height decimal Not Null,
+created_at date Not Null,
+goal_exercise_time integer,
+goal_calorie integer,
+rank_frag integer Not Null,
+alcohol_flag integer Not Null,
+smoke_frag integer Not Null,
+role_id integer Not Null,
+achievement_id integer references achievement(achievement_id),
+achievement_flag integer
+);
+
+create table units(
+units_id SERIAL PRIMARY KEY,
+category varchar(255)
+);
+
+create table categories(
+categories_id SERIAL PRIMARY KEY,
+unit_name varchar(255)
+);
+
+create table type(
+type_id SERIAL PRIMARY KEY,
+type varchar(255),
+type_unit1 integer references units(units_id),
+type_unit2 integer references units(units_id),
+type_unit3 integer references units(units_id),
+type_unit4 integer references units(units_id),
+type_unit5 integer references units(units_id),
+type_unit6 integer references units(units_id),
+type_unit7 integer references units(units_id),
+type_unit8 integer references units(units_id)
+);
+
+create table lists_and_records(
+lists_and_records_id SERIAL PRIMARY KEY,
+category integer references categories(categories_id),
+type integer references type(type_id),
+value1 varchar(255),
+value2 varchar(255),
+value3 varchar(255),
+value4 varchar(255),
+value5 varchar(255),
+value6 varchar(255),
+value7 varchar(255),
+value8 varchar(255),
+create_date date,
+user_id integer references users(user_id)
+);
+
+create table bmi_display(
+bmi_id SERIAL PRIMARY KEY,
+lower_limit decimal,
+upper_limit decimal,
+bmi_name varchar(255),
+img_pass varchar(255)
+);
+
+create table color(
+color_id SERIAL PRIMARY KEY,
+color_code varchar(255),
+color_level integer,
+genre integer UNIQUE
+);
+
+create table infomation(
+information_id SERIAL PRIMARY KEY,
+user_id integer references users(user_id),
+title varchar(255),
+contents varchar(5000),
+send_at date,
+read_flag integer,
+done_flag integer
+);
+
+create table achievement(
+achievement_id SERIAL PRIMARY KEY,
+achievement_name varchar(255),
+requirement_to_get varchar(255),
+condition_formula integer,
+score integer,
+major_divisions integer,
+sub_divisions integer
+);
+
+create table achievement_unlock(
+achievement_unlock_id SERIAL PRIMARY KEY,
+achievement_id integer references achievement(achievement_id),
+user_id integer references users(user_id)
+);
+
+create table message(
+message_id SERIAL PRIMARY KEY,
+message_text varchar(255),
+message_date date,
+user_id integer references users(user_id)
+);
