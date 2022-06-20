@@ -15,6 +15,7 @@
 <body>
   <h1>メールアドレス及びパスワードを入力してください</h1>
   
+  
   <c:if test="${not empty msg}">
   	<p>${fn:escapeXml(msg)}</p>
   </c:if>
