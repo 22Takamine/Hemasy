@@ -17,19 +17,22 @@
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
-  <h1>メインページ</h1>
 <header>
-    <button type="button" class="menu-btn">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </button>
-    <div class="menu">
-      <div class="menu__item">TOP</div>
-      <div class="menu__item">ABOUT</div>
-      <div class="menu__item">BLOG</div>
-      <div class="menu__item">CONTACT</div>
-    </div>
+	<div class="header-logo">Hemasy</div>
+	<form:form action="hamburger" modelAttribute="index" method="post">
+	    <button type="button" class="menu-btn">
+	      <i class="fa fa-bars" aria-hidden="true"></i>
+	    </button>
+	    <div class="menu">
+	      <div class="menu__item"><a href="./account">アカウント管理</a></div>
+	      <div class="menu__item"><a href="./rank">ランキング</a></div>
+	      <div class="menu__item"><a href="./list">リスト編集</a></div>
+	      <div class="menu__item"><a href="./information">お問い合わせ</a></div>
+	      <div class="menu__item"><a href="./logout">ログアウト</a></div>
+	    </div>
+    </form:form>
 </header>
-  
+  <div class="main">
   <form:form action="record" modelAttribute="index" method="post">
     <form:button><fmt:message key="form.lbl.record"/></form:button>
   </form:form>
@@ -37,6 +40,7 @@
   <form:form action="statistics" modelAttribute="index" method="post">
     <form:button><fmt:message key="form.lbl.statistics"/></form:button>
   </form:form>
+  </div>
 <script src="js/commons.js"></script>
 </body>
 </html>

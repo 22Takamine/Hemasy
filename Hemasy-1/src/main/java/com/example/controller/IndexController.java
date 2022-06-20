@@ -74,12 +74,52 @@ public class IndexController {
         return "menu";
     }
     
-  //戻るボタンを押すと、メニュー画面に遷移
+    //戻るボタンを押すと、メニュー画面に遷移
     @RequestMapping(value = "/back", method = RequestMethod.POST)
     public String back(@ModelAttribute("index") registerForm form, Model model) {
 
     	
         return "menu";
+    }
+    
+    //ハンバーガーメニューからアカウント管理へ
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public String account(@ModelAttribute("index") registerForm form, Model model) {
+
+    	
+        return "account";
+    }
+    
+    //ハンバーガーメニューからランキングへ
+    @RequestMapping(value = "/rank", method = RequestMethod.GET)
+    public String rank(@ModelAttribute("index") registerForm form, Model model) {
+
+    	
+        return "rank";
+    }
+    
+    //ハンバーガーメニューからリスト編集へ
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String list(@ModelAttribute("index") registerForm form, Model model) {
+
+    	
+        return "list";
+    }
+    
+    //ハンバーガーメニューからお問い合わせへ
+    @RequestMapping(value = "/information", method = RequestMethod.GET)
+    public String information(@ModelAttribute("index") registerForm form, Model model) {
+
+    	
+        return "information";
+    }
+    
+  //ハンバーガーメニューからログアウトへ
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(@ModelAttribute("index") registerForm form, Model model) {
+
+    	
+        return "logout";
     }
 
 }
