@@ -23,7 +23,7 @@
       <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
     <div class="menu">
-      <div class="menu__item">TO</div>
+      <div class="menu__item">TOPP</div>
       <div class="menu__item">ABOUT</div>
       <div class="menu__item">BLOG</div>
       <div class="menu__item">CONTACT</div>
