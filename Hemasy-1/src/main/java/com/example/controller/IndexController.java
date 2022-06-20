@@ -37,6 +37,13 @@ public class IndexController {
             return "login";
         }
     	
+    	String mail = form.getMail();
+    	String pass = form.getPass();
+    	
+    	if(mail.equals("1") && pass.equals("1")) {
+    		return "admin";
+    	}
+    	
         return "menu";
     }
     
