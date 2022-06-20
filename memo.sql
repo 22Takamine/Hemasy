@@ -32,17 +32,6 @@ AND type = 2;
 select * from 
 lists_and_records
 
-WHERE category = 2
-AND type = 5;
+-- メインページで使う　統計に遷移する際に送るデータをとるsql
+select  sum(value2*value3) calocie, create_date 日付 from lists_and_records  where category = 2 and type = 1 group by create_date;
 
--- 
-select T1.lists_and_records_id ID, T1.value1 運動の種類, T1.value2 Mets, T1.value3 運動時間, T1.create_date 日付, T1.user_id ユーザーID
-from
-lists_and_records AS T1
-JOIN lists_and_records AS T2 
-ON T1.user_id = T2.user_id 
-AND T1.create_date = T2.create_date
-
-WHERE T1.category = 2
-And T1.type = 2
-;
