@@ -21,27 +21,27 @@
 </head>
 <body>
 	<h1>統計</h1>
-	<div onclick="entryClick()" id="selectGraph">
-		<input type="button" id="foodButton" value="食事">
-		<input type="button" id="exerciseButton" value="運動">
-		<input type="button" id="alcoholButton" value="酒">
-		<input type="button" id="smokeButton" value="タバコ">
-		<input type="button" id="bmiButton" value="体重">
+	<div id="selectGraph">
+		<button data-index="food" onclick="entryClick(1)">食事</button>
+		<button data-index="exercise" onclick="entryClick(2)">運動</button>
+		<button data-index="alcohol" onclick="entryClick(3)">酒</button>
+		<button data-index="smoke" onclick="entryClick(4)">タバコ</button>
+		<button data-index="bmi" onclick="entryClick(5)">>体重</button>
 	</div>
 	<div style="width: 400px">
-		<canvas id="food"></canvas>
+		<canvas id="foodGraph"></canvas>
 	</div>
 	<div style="width: 400px">
-		<canvas id="exercise"></canvas>
+		<canvas id="exerciseGraph"></canvas>
 	</div>
 	<div style="width: 400px">
-		<canvas id="alcohol"></canvas>
+		<canvas id="alcoholGraph"></canvas>
 	</div>
 	<div style="width: 400px">
-		<canvas id="smoke"></canvas>
+		<canvas id="smokeGraph"></canvas>
 	</div>
 	<div style="width: 400px">
-		<canvas id="bmi"></canvas>
+		<canvas id="bmiGraph"></canvas>
 	</div>
 	<script>
 var ctx = document.getElementById('food');
@@ -185,12 +185,8 @@ var myChart = new Chart(ctx, {
 </script>
 </body>
 <script type="text/javascript">
-document.getElementById('selectGraph').onclick = entryClick;
-
-function entryClick(){
-	if(document.getElementById('selectGraph')){
-		id = document.getElementById('selectGraph').value;
-		if(id == 'select1'){
+function entryClick(id){
+		if(id == 1){
 			document.getElementById('firstBox').style.display = "";
 			document.getElementById('secondBox').style.display = "none";
 			document.getElementById('thirdBox').style.display = "none";
@@ -204,7 +200,6 @@ function entryClick(){
 			document.getElementById('secondBox').style.display = "none";
 			document.getElementById('thirdBox').style.display = "";
 		}
-	}
 }
 // window.onload = entryChange;
 </script>
