@@ -13,6 +13,8 @@
 <title>記録画面</title>
 </head>
 <body>
+  
+
 	<header>
 		<div class="header-logo" id="header">Hemasy</div>
 		<form:form action="hamburger" modelAttribute="index" method="post">
@@ -131,6 +133,7 @@
 	
 	<a href="#header">↑</a>
 	<script src="js/commons.js"></script>
+
 
 </body>
 </html>
