@@ -1,3 +1,8 @@
+DROP DATABASE hemasy_db;
+/* データベース作成 */
+CREATE DATABASE hemasy_db;
+
+DROP TABLE users;
 create table users(
 user_id SERIAL PRIMARY KEY,
 user_name varchar(255) Not Null Unique,
@@ -17,16 +22,19 @@ achievement_id integer references achievement(achievement_id),
 achievement_flag integer
 );
 
+DROP TABLE units;
 create table units(
 units_id SERIAL PRIMARY KEY,
 category varchar(255)
 );
 
+DROP TABLE categories;
 create table categories(
 categories_id SERIAL PRIMARY KEY,
 unit_name varchar(255)
 );
 
+DROP TABLE type;
 create table type(
 type_id SERIAL PRIMARY KEY,
 type varchar(255),
@@ -40,6 +48,7 @@ type_unit7 integer references units(units_id),
 type_unit8 integer references units(units_id)
 );
 
+DROP TABLE lists_and_records;
 create table lists_and_records(
 lists_and_records_id SERIAL PRIMARY KEY,
 category integer references categories(categories_id),
@@ -56,6 +65,7 @@ create_date date,
 user_id integer references users(user_id)
 );
 
+DROP TABLE bmi_display;
 create table bmi_display(
 bmi_id SERIAL PRIMARY KEY,
 lower_limit decimal,
@@ -64,6 +74,7 @@ bmi_name varchar(255),
 img_pass varchar(255)
 );
 
+DROP TABLE color;
 create table color(
 color_id SERIAL PRIMARY KEY,
 color_code varchar(255),
@@ -71,6 +82,7 @@ color_level integer,
 genre integer UNIQUE
 );
 
+DROP TABLE infomation;
 create table infomation(
 information_id SERIAL PRIMARY KEY,
 user_id integer references users(user_id),
@@ -81,6 +93,7 @@ read_flag integer,
 done_flag integer
 );
 
+DROP TABLE achievement;
 create table achievement(
 achievement_id SERIAL PRIMARY KEY,
 achievement_name varchar(255),
@@ -91,12 +104,14 @@ major_divisions integer,
 sub_divisions integer
 );
 
+DROP TABLE achievement_unlock;
 create table achievement_unlock(
 achievement_unlock_id SERIAL PRIMARY KEY,
 achievement_id integer references achievement(achievement_id),
 user_id integer references users(user_id)
 );
 
+DROP TABLE message;
 create table message(
 message_id SERIAL PRIMARY KEY,
 message_text varchar(255),
