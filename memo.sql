@@ -36,7 +36,7 @@ select  sum(value2*value3) calocie, create_date 日付 from lists_and_records  w
 select create_date AS day
 , sum(value2*value3) 摂取カロリー
  from lists_and_records 
- where left(to_char(create_date, 'YYYY-MM'), 7) = left('2022-06-23', 7)
+ where left(to_char(create_date, 'YYYY-MM'), 7) = left(cast('2022-01-01' as date) + cast( '5 months' as INTERVAL ), 7)
  AND user_id = 1
  AND category = 2
  AND type = 1
@@ -53,3 +53,18 @@ AND user_id = 1
 AND left(to_char(create_date, 'YYYY-MM'), 4) = left('2022-04-23', 4)
 GROUP BY month
 ORDER BY month;
+
+-- 翌年のYYYYが出てくる
+left(to_char(cast('2022-01-01' as date) + cast( '1 year' as INTERVAL ), 'YYYY-MM'), 4)
+
+-- 先月のYYYY-MMが出てくる
+left(to_char(cast('2022-01-01' as date) + cast( '-1 month' as INTERVAL ), 'YYYY-MM'), 7)
+
+--もっていない称号を見る。
+SELECT T1.achievement_id, T1.achievement_name, T2.user_id
+FROM achievement T1
+LEFT JOIN achievement_unlock T2
+ON T1.achievement_id = T2.achievement_id
+AND T2.user_id = 1
+where user_id is null;
+
