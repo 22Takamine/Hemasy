@@ -19,7 +19,7 @@
     <form:button><fmt:message key="form.lbl.regist"/></form:button>
   </form:form>
   
-  <form:form action="back" modelAttribute="index" method="post">
+  <form:form action="back" modelAttribute="index" method="get">
     <form:button><fmt:message key="form.lbl.back"/></form:button>
   </form:form>
   

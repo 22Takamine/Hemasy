@@ -82,7 +82,7 @@ public class IndexController {
     }
     
     //戻るボタンを押すと、メニュー画面に遷移
-    @RequestMapping(value = "/back", method = RequestMethod.POST)
+    @RequestMapping(value = "/back", method = RequestMethod.GET)
     public String back(@ModelAttribute("index") registerForm form, Model model) {
 
     	
