@@ -11,10 +11,171 @@
 <head>
 <meta charset="UTF-8">
 <title>統計画面</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+  integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+  crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
   <h1>統計</h1>
-  
-  
+  <div style="width:400px">
+  <canvas id="food"></canvas>
+</div>
+  <div style="width:400px">
+  <canvas id="exercise"></canvas>
+</div>
+  <div style="width:400px">
+  <canvas id="alcohol"></canvas>
+</div>
+  <div style="width:400px">
+  <canvas id="smoke"></canvas>
+</div>
+  <div style="width:400px">
+  <canvas id="bmi"></canvas>
+</div>
+<script>
+var ctx = document.getElementById('food');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    datasets: [{
+      label: 'Red',
+      data: [20, 35, 40, 30, 45, 35, 40],
+      borderColor: '#f88',
+    }, {
+      label: 'Green',
+      data: [20, 15, 30, 25, 30, 40, 35],
+      borderColor: '#484',
+    }, {
+      label: 'Blue',
+      data: [30, 25, 10, 5, 25, 30, 20],
+      borderColor: '#48f',
+    }],
+  },
+  options: {
+    y: {
+      min: 0,
+      max: 60,
+    },
+  },
+});
+</script>
+<script>
+var ctx = document.getElementById('exercise');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    datasets: [{
+      label: 'Red',
+      data: [20, 35, 40, 30, 45, 35, 40],
+      borderColor: '#f88',
+    }, {
+      label: 'Green',
+      data: [20, 15, 30, 25, 30, 40, 35],
+      borderColor: '#484',
+    }, {
+      label: 'Blue',
+      data: [30, 25, 10, 5, 25, 30, 20],
+      borderColor: '#48f',
+    }],
+  },
+  options: {
+    y: {
+      min: 0,
+      max: 60,
+    },
+  },
+});
+</script>
+<script>
+var ctx = document.getElementById('alcohol');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    datasets: [{
+      label: 'Red',
+      data: [20, 35, 40, 30, 45, 35, 40],
+      borderColor: '#f88',
+    }, {
+      label: 'Green',
+      data: [20, 15, 30, 25, 30, 40, 35],
+      borderColor: '#484',
+    }, {
+      label: 'Blue',
+      data: [30, 25, 10, 5, 25, 30, 20],
+      borderColor: '#48f',
+    }],
+  },
+  options: {
+    y: {
+      min: 0,
+      max: 60,
+    },
+  },
+});
+</script>
+<script>
+var ctx = document.getElementById('smoke');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    datasets: [{
+      label: 'Red',
+      data: [20, 35, 40, 30, 45, 35, 40],
+      borderColor: '#f88',
+    }, {
+      label: 'Green',
+      data: [20, 15, 30, 25, 30, 40, 35],
+      borderColor: '#484',
+    }, {
+      label: 'Blue',
+      data: [30, 25, 10, 5, 25, 30, 20],
+      borderColor: '#48f',
+    }],
+  },
+  options: {
+    y: {
+      min: 0,
+      max: 60,
+    },
+  },
+});
+</script>
+<script>
+var ctx = document.getElementById('bmi');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    datasets: [{
+      label: 'Red',
+      data: [20, 35, 40, 30, 45, 35, 40],
+      borderColor: '#f88',
+    }, {
+      label: 'Green',
+      data: [20, 15, 30, 25, 30, 40, 35],
+      borderColor: '#484',
+    }, {
+      label: 'Blue',
+      data: [30, 25, 10, 5, 25, 30, 20],
+      borderColor: '#48f',
+    }],
+  },
+  options: {
+    y: {
+      min: 0,
+      max: 60,
+    },
+  },
+});
+</script>
+</div>
 </body>
 </html>
