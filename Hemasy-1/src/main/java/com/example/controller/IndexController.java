@@ -117,9 +117,19 @@ public class IndexController {
     }
     
     //戻るボタンを押すと、メニュー画面に遷移
-    @RequestMapping(value = "/back", method = RequestMethod.POST)
+    @RequestMapping(value = "/back", method = RequestMethod.GET)
     public String back(@ModelAttribute("index") registerForm form, Model model) {
 
+    	
+        return "menu";
+    }
+    
+    //アカウント管理で登録ボタンを押すと、メニュー画面に遷移
+    @RequestMapping(value = "/accountRegist", method = RequestMethod.POST)
+    public String accountRegist(@Validated  @ModelAttribute("index") registerForm form, BindingResult bindingResult, Model model) {
+    	if (bindingResult.hasErrors()) {
+            return "login";
+        }
     	
         return "menu";
     }

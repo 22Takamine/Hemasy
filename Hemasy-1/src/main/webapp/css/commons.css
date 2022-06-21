@@ -63,7 +63,8 @@
 *----------------------------*/
 
 /* ヘッダーロゴ */
-.header-logo {
+.header-logo > a{
+ text-decoration: none;
  color: #000000;
  font-size: 30px;
  float: left;
