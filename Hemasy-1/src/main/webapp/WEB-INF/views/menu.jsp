@@ -40,6 +40,7 @@
   <form:form action="statistics" modelAttribute="index" method="post">
     <form:button><fmt:message key="form.lbl.statistics"/></form:button>
   </form:form>
+  
   </div>
 <script src="js/commons.js"></script>
 </body>
