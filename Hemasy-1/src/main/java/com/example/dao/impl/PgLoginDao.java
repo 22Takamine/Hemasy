@@ -1,7 +1,5 @@
 package com.example.dao.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -15,8 +13,7 @@ import com.example.entity.Login;
 @Repository
 public class PgLoginDao implements LoginDao {
 
-	private static final String SELECT_ID_AND_PASS = 
-			"SELECT * FROM users WHERE mail = :mail and password = :password";
+	
 
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
@@ -25,18 +22,22 @@ public class PgLoginDao implements LoginDao {
 	 * 条件を指定した検索
 	 */
 	@Override
-	public Login findIdAndPass(String mail,String password) {
-
+	public Login findIdAndPass(String mail,String pass) {
+		
+		String sql = """
+						select * from users
+						where mail = :mail
+						and password = :password
+					""";
+		
 		MapSqlParameterSource param = new MapSqlParameterSource();
-
 		param.addValue("mail", mail);
-		param.addValue("password", password);
+		param.addValue("password", pass);
 
-
-		String sql = SELECT_ID_AND_PASS;
-		List<Login>resultList = jdbcTemplate.query(sql, param, new BeanPropertyRowMapper<Login>(Login.class));
-
-		return resultList.isEmpty() ? null:resultList.get(0);
+		var list = jdbcTemplate.query(sql, param, new BeanPropertyRowMapper<Login>(Login.class) );
+		return list.isEmpty() ? null :list.get(0);
+		
+		
 	}
 }
 

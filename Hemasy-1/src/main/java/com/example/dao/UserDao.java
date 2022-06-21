@@ -29,21 +29,4 @@ public class UserDao {
 		
 	}
 	
-	public Users BMI(int user_id) {
-		String sql = """
-						SELECT ROUND(T2.value2/((T1.height/100)*(T1.height/100)), 2) bmi
-						from users T1
-						Join lists_and_records T2
-						ON T1.user_id = T2.user_id
-						AND T2.category = 2
-						AND T2.type = 5
-				
-						where T1.user_id = :user_id
-					""";
-		MapSqlParameterSource param = new MapSqlParameterSource();
-		param.addValue("user_id", user_id);
-		var list = jdbcTemplate.query(sql, param, new BeanPropertyRowMapper<Users>(Users.class) );
-		return list.isEmpty() ? null :list.get(0);
-
-	}
 }

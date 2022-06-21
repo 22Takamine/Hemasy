@@ -2,9 +2,9 @@ package com.example.controller;
 
 
 
-import javax.servlet.http.HttpSession;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -16,13 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import com.example.dao.UserDao;
-import com.example.entity.Users;
 import com.example.entity.Login;
-
-
-
+import com.example.entity.Users;
 import com.example.form.IndexForm;
 import com.example.form.registerForm;
 import com.example.service.LoginService;
@@ -59,24 +55,53 @@ public class IndexController {
     	if (bindingResult.hasErrors()) {	
             return "login";
         }
-<<<<<<< HEAD
+
+    	//↓コンフリクト起きてる箇所
+
+		Login user = loginService.findIdAndPass(form.getMail(),form.getPass());
+		
+		if (user == null) {
+			// メッセージリソースファイルから、メッセージを取得
+			String errMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
+			model.addAttribute("msg", errMsg);
+		
+			return "login";
+			
+		} else {
+			//確認用
+			System.out.println(user);
+			//sessionに保存
+			session.setAttribute("user", user);
+			//保存されているかの確認
+			System.out.println(session.getAttribute("user"));
+			
+			//BMI計算をするためにuser_idを取得する
+			var user_id = user.getUser_id();
+			
+			//・身長と体重をもとにBMIを算出するDAOを呼び出す。
+			Users bmi = null;
+			
+			bmi = userDao.BMI(user_id);
+			
+			System.out.println(bmi.getBmi());
+			
+			return "menu";
+		}
     	
-    	String mail = form.getMail();
-    	String pass  = form.getPass();
-    	
-    	if(mail.equals("1") && pass.equals("1")) {
-    		return "admin";
-    	}
+//    	String mail = form.getMail();
+//    	String pass  = form.getPass();
+//    	
+//    	if(mail.equals("1") && pass.equals("1")) {
+//    		return "admin";
+//    	}
     	
     	
 		//上のmailとパスワードでログインした時、mailとpassと一致するユーザー情報を取得してくる。
-		var user = userDao.userSelect(mail, pass);
-		session.setAttribute("user", user);
-		System.out.println(session.getAttribute("user"));
+		
+		
 		//↑取得できた
 		
-		//BMI計算をするためにuser_idを取得する
-		var user_id = user.getUser_id();
+		
 		
 		//System.out.println(user_id);
 		//取得できた。
@@ -86,34 +111,17 @@ public class IndexController {
 		
 		//その前にDBから最新の体重を取得する必要がある。
 		
-    	//・身長と体重をもとにBMIを算出するDAOを呼び出す。
-		Users bmi = null;
-		
-		bmi = userDao.BMI(user_id);
+    	
 		
 		//↑でBMIの値は算出できた。
 		
 		
 		
-		System.out.println(bmi.getBmi());
+		
 		
         return "menu";
-=======
-   
-		Login list = loginService.findIdAndPass(form.getMail(),form.getPass());
 
-		if (list == null) {
-			// メッセージリソースファイルから、メッセージを取得
-			String errMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
-			model.addAttribute("msg", errMsg);
-
-			return "login";
-			
-		} else {
-			
-			return "menu";
-		}
->>>>>>> origin/develop
+        //↑コンフリクト箇所
     }
     
     //ログイン画面から、新規登録画面に遷移
