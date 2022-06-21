@@ -56,8 +56,6 @@ public class IndexController {
             return "login";
         }
 
-    	//↓コンフリクト起きてる箇所
-
 		Login user = loginService.findIdAndPass(form.getMail(),form.getPass());
 		
 		if (user == null) {
@@ -88,36 +86,6 @@ public class IndexController {
 			return "menu";
 		}
     	
-//    	String mail = form.getMail();
-//    	String pass  = form.getPass();
-//    	
-//    	if(mail.equals("1") && pass.equals("1")) {
-//    		return "admin";
-//    	}
-    	
-    	
-		//上のmailとパスワードでログインした時、mailとpassと一致するユーザー情報を取得してくる。
-		
-		
-		//↑取得できた
-		
-		
-		
-		//System.out.println(user_id);
-		//取得できた。
-    
-    	
-    	//最初に表示するものは、BMIに関してはここで計算する必要がある。BMI人形、肺の色、肝臓の色、胃の色
-		
-		//その前にDBから最新の体重を取得する必要がある。
-		
-    	
-		
-		//↑でBMIの値は算出できた。
-		
-	
-
-        //↑コンフリクト箇所
     }
     
     //ログイン画面から、新規登録画面に遷移
