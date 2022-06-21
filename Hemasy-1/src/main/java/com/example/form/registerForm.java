@@ -10,6 +10,7 @@ public class registerForm {
     
     @NotEmpty
     private String pass;
+    
 
     public String getMail() {
         return mail;
