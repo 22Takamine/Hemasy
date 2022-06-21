@@ -11,6 +11,11 @@
 <head>
 <meta charset="UTF-8">
 <title>記録画面</title>
+<link href="css/commons.css" rel="stylesheet">
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<meta name="viewport" content="width=device-width">
 </head>
 <body>
 	<header>
@@ -42,8 +47,8 @@
 	<a href="#food">食事</a>
 	<a href="#sport">運動</a>
 	<a href="#alcohol">酒</a>
-	<a href="smoke">たばこ</a>
-	<a href="weight">体重</a>
+	<a href="#smoke">たばこ</a>
+	<a href="#weight">体重</a>
 	<form action="record">
 		<input type="date" name="record_day">
 	</form>
@@ -314,6 +319,6 @@
 	  parent.removeChild(tgt_id);	
 	}
 	</script>
-
+	<script src="js/commons.js"></script>
 </body>
 </html>
