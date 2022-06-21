@@ -15,85 +15,92 @@
 <body>
 	<h1>登録情報を入力してください</h1>
 
-	<form:form action="index" modelAttribute="index" method="post">
+	<form:form action="loginBack" modelAttribute="index" method="post">
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.name" />
+			<input type="text" name="name" value="">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.mail" />
+			<input type="text" name="mail" value="">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.password" />
+			<input type="text" name="pass" value="pass">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.sex" />
+			<c:if test="${men}">
+				<input type="radio" name="sex" value="men" checked>男      
+			<input type="radio" name="sex" value="women">女
+		</c:if>
+			<input type="radio" name="sex" value="men">男 <input
+				type="radio" name="sex" value="women" checked>女
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.birthDate" />
+			<input type="date" name="birthDate" value="">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.height" />
+			<input type="text" name="height" value="">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.weight" />
+			<input type="text" name="goalExerciseTime" value="">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
-		</div>
-
-
-		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.weight-percentage" />
+			<input type="text" name="goalCalorise" value="2200kcal">
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.rank" />
+			<c:if test="${rank}">
+				<input type="radio" name="rank" value="yes" checked>参加する      
+			<input type="radio" name="rank" value="no">参加しない
+		</c:if>
+			<input type="radio" name="rank" value="yes">参加する <input
+				type="radio" name="rank" value="no" checked>参加しない
 		</div>
 
 		<div>
-			<label><fmt:message key="form.lbl.mail" /></label>
-			<form:input path="mail" type="text" />
-			<form:errors path="mail" cssStyle="color: red" />
+			<fmt:message key="form.lbl.smoke" />
+			<c:if test="${smoke}">
+				<input type="radio" name="smoke" value="yes" checked>吸っている      
+			<input type="radio" name="smoke" value="no">吸わない
+		</c:if>
+			<input type="radio" name="smoke" value="yes">吸っている <input
+				type="radio" name="smoke" value="no" checked>吸わない
+		</div>
+
+		<div>
+			<fmt:message key="form.lbl.alcohol" />
+			<c:if test="${alcohol}">
+				<input type="radio" name="alcohol" value="yes" checked>飲んでいる     
+			<input type="radio" name="alcohol" value="no">飲まない
+		</c:if>
+			<input type="radio" name="alcohol" value="yes">飲んでいる <input
+				type="radio" name="alcohol" value="no" checked>飲まない
 		</div>
 
 		<form:button>
 			<fmt:message key="form.lbl.regist" />
 		</form:button>
+		<form:form action="index" modelAttribute="index" method="post">
+			<form:button>
+				<fmt:message key="form.lbl.back" />
+			</form:button>
+		</form:form>
 	</form:form>
 
-	<form:form action="index" modelAttribute="index" method="post">
-		<form:button>
-			<fmt:message key="form.lbl.back" />
-		</form:button>
-	</form:form>
-	
 </body>
 </html>

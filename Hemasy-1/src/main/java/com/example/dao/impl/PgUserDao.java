@@ -59,9 +59,6 @@ public class PgUserDao implements UserDao {
 		param.addValue("smoke_flag", user.getSmoke_flag());
 		
 		jdbcTemplate.update(sql, param);
-		
-		return;
 	}
-
 }
 

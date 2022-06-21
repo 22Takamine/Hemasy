@@ -61,11 +61,18 @@ public class IndexController {
     @RequestMapping(value = "/result", params="register", method = RequestMethod.POST)
     public String register(@ModelAttribute("index") registerForm form, Model model) {
 
-		//User user = new User(form.getMail(), form.getPassword());
-
-//		userService.insert(user);
-		
         return "register";
+    }
+    
+    @RequestMapping(value = "/result", params="loginBack", method = RequestMethod.POST)
+    public String loginBack(@ModelAttribute("index") registerForm form, Model model) {
+
+		User user = new User(form.getUser_name(),form.getMail(), form.getPassword(),form.getSex(),form.getBirth(),form.getHeight(),
+				form.getCreated_at(),form.getRank_flag(),form.getAlcohol_flag(),form.getSmoke_flag(),form.getRole());
+
+		userService.insert(user);
+		
+        return "login";
     }
     
     //記録＆リスト画面に遷移
