@@ -78,7 +78,7 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [{
-      label: 'Red',
+      label: '運動',
       data: [20, 35, 40, 30, 45, 35, 40],
       borderColor: '#f88',
     }, {
@@ -106,7 +106,7 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [{
-      label: 'Red',
+      label: '酒',
       data: [20, 35, 40, 30, 45, 35, 40],
       borderColor: '#f88',
     }, {
@@ -134,7 +134,7 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [{
-      label: 'Red',
+      label: 'タバコ',
       data: [20, 35, 40, 30, 45, 35, 40],
       borderColor: '#f88',
     }, {
@@ -162,7 +162,7 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [{
-      label: 'Red',
+      label: '体重',
       data: [20, 35, 40, 30, 45, 35, 40],
       borderColor: '#f88',
     }, {
@@ -191,18 +191,30 @@ function entryClick(id){
 			document.getElementById('alcoholGraph').style.display = "none";
 			document.getElementById('smokeGraph').style.display = "none";
 			document.getElementById('bmiGraph').style.display = "none";
-		}else if(id == 4){
-			document.getElementById('foodGraph').style.display = "";
-			document.getElementById('exerciseGraph').style.display = "none";
+		}else if(id == 2){
+			document.getElementById('foodGraph').style.display = "none";
+			document.getElementById('exerciseGraph').style.display = "";
 			document.getElementById('alcoholGraph').style.display = "none";
 			document.getElementById('smokeGraph').style.display = "none";
 			document.getElementById('bmiGraph').style.display = "none";
 		}else if(id == 3){
-			document.getElementById('foodGraph').style.display = "";
+			document.getElementById('foodGraph').style.display = "none";
+			document.getElementById('exerciseGraph').style.display = "none";
+			document.getElementById('alcoholGraph').style.display = "";
+			document.getElementById('smokeGraph').style.display = "none";
+			document.getElementById('bmiGraph').style.display = "none";
+		}else if(id == 4){
+			document.getElementById('foodGraph').style.display = "none";
+			document.getElementById('exerciseGraph').style.display = "none";
+			document.getElementById('alcoholGraph').style.display = "none";
+			document.getElementById('smokeGraph').style.display = "";
+			document.getElementById('bmiGraph').style.display = "none";
+		}else if(id == 5){
+			document.getElementById('foodGraph').style.display = "none";
 			document.getElementById('exerciseGraph').style.display = "none";
 			document.getElementById('alcoholGraph').style.display = "none";
 			document.getElementById('smokeGraph').style.display = "none";
-			document.getElementById('bmiGraph').style.display = "none";
+			document.getElementById('bmiGraph').style.display = "";
 		}
 }
 // window.onload = entryChange;
