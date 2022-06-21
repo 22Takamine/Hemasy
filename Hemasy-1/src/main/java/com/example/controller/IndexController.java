@@ -115,11 +115,7 @@ public class IndexController {
 		
 		//↑でBMIの値は算出できた。
 		
-		
-		
-		
-		
-        return "menu";
+	
 
         //↑コンフリクト箇所
     }
