@@ -26,8 +26,9 @@
 		<button data-index="exercise" onclick="entryClick(2)">運動</button>
 		<button data-index="alcohol" onclick="entryClick(3)">酒</button>
 		<button data-index="smoke" onclick="entryClick(4)">タバコ</button>
-		<button data-index="bmi" onclick="entryClick(5)">>体重</button>
+		<button data-index="bmi" onclick="entryClick(5)">体重</button>
 	</div>
+	<br><input type="button" value="左"><input type="button" value="右">
 	<div style="width: 400px">
 		<canvas id="foodGraph"></canvas>
 	</div>
@@ -44,146 +45,217 @@
 		<canvas id="bmiGraph"></canvas>
 	</div>
 	<script>
-var ctx = document.getElementById('foodGraph');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    datasets: [{
-      label: 'Red',
-      data: [20, 35, 40, 30, 45, 35, 40],
-      borderColor: '#f88',
-    }, {
-      label: 'Green',
-      data: [20, 15, 30, 25, 30, 40, 35],
-      borderColor: '#484',
-    }, {
-      label: 'Blue',
-      data: [30, 25, 10, 5, 25, 30, 20],
-      borderColor: '#48f',
-    }],
-  },
-  options: {
-    y: {
-      min: 0,
-      max: 60,
-    },
-  },
-});
-</script>
+	//食事用のグラフ
+window.addEventListener('load', makeChart);
+	function makeChart(){		
+	var ctx = document.getElementById("foodGraph");
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : foodGraphData,
+				options : complexChartOption
+			})
+	};
+			document.getElementById('canvas').addEventListener('click', e => {
+					console.log(e)
+		    	  const elements = window.myCanvas.getElementAtEvent(e);
+		    	  if (elements[0]._model.label.length) {
+		    		  window.location.href = './eat?day=' + [elements[0]._model.label];
+	    			  console.log('elements', [elements[0]._model.label]);
+		    	  }else {
+		    		  alert('aa');
+		     	 }
+			
+		    	});
+	</script>
+
 	<script>
-var ctx = document.getElementById('exerciseGraph');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    datasets: [{
-      label: '運動',
-      data: [20, 35, 40, 30, 45, 35, 40],
-      borderColor: '#f88',
-    }, {
-      label: 'Green',
-      data: [20, 15, 30, 25, 30, 40, 35],
-      borderColor: '#484',
-    }, {
-      label: 'Blue',
-      data: [30, 25, 10, 5, 25, 30, 20],
-      borderColor: '#48f',
-    }],
-  },
-  options: {
-    y: {
-      min: 0,
-      max: 60,
-    },
-  },
-});
-</script>
+	//運動用のグラフ
+window.addEventListener('load', makeChart);
+	function makeChart(){		
+	var ctx = document.getElementById("exerciseGraph");
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : exerciseGraphData,
+				options : complexChartOption
+			})
+	};
+			document.getElementById('canvas').addEventListener('click', e => {
+					console.log(e)
+		    	  const elements = window.myCanvas.getElementAtEvent(e);
+		    	  if (elements[0]._model.label.length) {
+		    		  window.location.href = './eat?day=' + [elements[0]._model.label];
+	    			  console.log('elements', [elements[0]._model.label]);
+		    	  }else {
+		    		  alert('aa');
+		     	 }
+			
+		    	});
+	</script>
 	<script>
-var ctx = document.getElementById('alcoholGraph');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    datasets: [{
-      label: '酒',
-      data: [20, 35, 40, 30, 45, 35, 40],
-      borderColor: '#f88',
-    }, {
-      label: 'Green',
-      data: [20, 15, 30, 25, 30, 40, 35],
-      borderColor: '#484',
-    }, {
-      label: 'Blue',
-      data: [30, 25, 10, 5, 25, 30, 20],
-      borderColor: '#48f',
-    }],
-  },
-  options: {
-    y: {
-      min: 0,
-      max: 60,
-    },
-  },
-});
-</script>
+	//アルコール用のグラフ
+window.addEventListener('load', makeChart);
+	function makeChart(){		
+	var ctx = document.getElementById("alcoholGraph");
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : alcoholGraphData,
+				options : complexChartOption
+			})
+	};
+			document.getElementById('canvas').addEventListener('click', e => {
+					console.log(e)
+		    	  const elements = window.myCanvas.getElementAtEvent(e);
+		    	  if (elements[0]._model.label.length) {
+		    		  window.location.href = './eat?day=' + [elements[0]._model.label];
+	    			  console.log('elements', [elements[0]._model.label]);
+		    	  }else {
+		    		  alert('aa');
+		     	 }
+			
+		    	});
+	</script>
 	<script>
-var ctx = document.getElementById('smokeGraph');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    datasets: [{
-      label: 'タバコ',
-      data: [20, 35, 40, 30, 45, 35, 40],
-      borderColor: '#f88',
-    }, {
-      label: 'Green',
-      data: [20, 15, 30, 25, 30, 40, 35],
-      borderColor: '#484',
-    }, {
-      label: 'Blue',
-      data: [30, 25, 10, 5, 25, 30, 20],
-      borderColor: '#48f',
-    }],
-  },
-  options: {
-    y: {
-      min: 0,
-      max: 60,
-    },
-  },
-});
-</script>
+	//タバコ用のグラフ
+window.addEventListener('load', makeChart);
+	function makeChart(){		
+	var ctx = document.getElementById("smokeGraph");
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : smokeGraphData,
+				options : complexChartOption
+			})
+	};
+			document.getElementById('canvas').addEventListener('click', e => {
+					console.log(e)
+		    	  const elements = window.myCanvas.getElementAtEvent(e);
+		    	  if (elements[0]._model.label.length) {
+		    		  window.location.href = './eat?day=' + [elements[0]._model.label];
+	    			  console.log('elements', [elements[0]._model.label]);
+		    	  }else {
+		    		  alert('aa');
+		     	 }
+			
+		    	});
+	</script>
 	<script>
-var ctx = document.getElementById('bmiGraph');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    datasets: [{
-      label: '体重',
-      data: [20, 35, 40, 30, 45, 35, 40],
-      borderColor: '#f88',
-    }, {
-      label: 'Green',
-      data: [20, 15, 30, 25, 30, 40, 35],
-      borderColor: '#484',
-    }, {
-      label: 'Blue',
-      data: [30, 25, 10, 5, 25, 30, 20],
-      borderColor: '#48f',
-    }],
-  },
-  options: {
-    y: {
-      min: 0,
-      max: 60,
-    },
-  },
-});
-</script>
-<script type="text/javascript">
+	//体重用のグラフ
+window.addEventListener('load', makeChart);
+	function makeChart(){		
+	var ctx = document.getElementById("bmiGraph");
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : bmiGraphData,
+				options : complexChartOption
+			})
+	};
+			document.getElementById('canvas').addEventListener('click', e => {
+					console.log(e)
+		    	  const elements = window.myCanvas.getElementAtEvent(e);
+		    	  if (elements[0]._model.label.length) {
+		    		  window.location.href = './eat?day=' + [elements[0]._model.label];
+	    			  console.log('elements', [elements[0]._model.label]);
+		    	  }else {
+		    		  alert('aa');
+		     	 }
+			
+		    	});
+	</script>
+		<script>
+		//食事用のデータ
+		var foodGraphData = {
+			labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			datasets: [{
+			      label: '食事',
+			      data: [20, 35, 40, 30, 45, 35, 40],
+			      borderColor: '#f88',
+			    }, {
+			      label: 'Green',
+			      data: [20, 15, 30, 25, 30, 40, 35],
+			      borderColor: '#484',
+			    }, {
+			      label: 'Blue',
+			      data: [30, 25, 10, 5, 25, 30, 20],
+			      borderColor: '#48f',
+			    }],
+		};
+	</script>
+		<script>
+		//運動用のデータ
+		var exerciseGraphData = {
+			labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			datasets: [{
+			      label: '運動',
+			      data: [20, 35, 40, 30, 45, 35, 40],
+			      borderColor: '#f88',
+			    }, {
+			      label: 'Green',
+			      data: [20, 15, 30, 25, 30, 40, 35],
+			      borderColor: '#484',
+			    }, {
+			      label: 'Blue',
+			      data: [30, 25, 10, 5, 25, 30, 20],
+			      borderColor: '#48f',
+			    }],
+		};
+	</script>
+		<script>
+		//酒用のデータ
+		var alcoholGraphData = {
+			labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			datasets: [{
+			      label: '酒',
+			      data: [20, 35, 40, 30, 45, 35, 40],
+			      borderColor: '#f88',
+			    }, {
+			      label: 'Green',
+			      data: [20, 15, 30, 25, 30, 40, 35],
+			      borderColor: '#484',
+			    }, {
+			      label: 'Blue',
+			      data: [30, 25, 10, 5, 25, 30, 20],
+			      borderColor: '#48f',
+			    }],
+		};
+	</script>
+		<script>
+		//タバコ用のデータ
+		var smokeGraphData = {
+			labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			datasets: [{
+			      label: 'タバコ',
+			      data: [20, 35, 40, 30, 45, 35, 40],
+			      borderColor: '#f88',
+			    }, {
+			      label: 'Green',
+			      data: [20, 15, 30, 25, 30, 40, 35],
+			      borderColor: '#484',
+			    }, {
+			      label: 'Blue',
+			      data: [30, 25, 10, 5, 25, 30, 20],
+			      borderColor: '#48f',
+			    }],
+		};
+	</script>
+		<script>
+		//体重用のデータ
+		var bmiGraphData = {
+			labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			datasets: [{
+			      label: '体重',
+			      data: [20, 35, 40, 30, 45, 35, 40],
+			      borderColor: '#f88',
+			    }, {
+			      label: 'Green',
+			      data: [20, 15, 30, 25, 30, 40, 35],
+			      borderColor: '#484',
+			    }, {
+			      label: 'Blue',
+			      data: [30, 25, 10, 5, 25, 30, 20],
+			      borderColor: '#48f',
+			    }],
+		};
+	</script>
+	<script type="text/javascript">
 function entryClick(id){
 		if(id == 1){
 			document.getElementById('foodGraph').style.display = "";
@@ -219,5 +291,35 @@ function entryClick(id){
 }
 // window.onload = entryChange;
 </script>
+
+	<script>
+		var complexChartOption = {
+			responsive : true,
+			scales : {
+				yAxes : [ {
+					id : "y-axis-1",
+					type : "linear",
+					position : "left",
+					ticks : {
+						max : 2000,
+ 						min : 0,
+// 						stepSize : 0.1
+					},
+				}, {
+					id : "y-axis-2",
+					type : "linear",
+					position : "right",
+					ticks : {
+// 						max : 1.5,
+// 						min : 0,
+// 						stepSize : .5
+					},
+					gridLines : {
+						drawOnChartArea : false,
+					},
+				} ],
+			}
+		};
+	</script>
 </body>
 </html>
