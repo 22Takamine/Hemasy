@@ -44,7 +44,7 @@
 		<canvas id="bmiGraph"></canvas>
 	</div>
 	<script>
-var ctx = document.getElementById('food');
+var ctx = document.getElementById('foodGraph');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -72,7 +72,7 @@ var myChart = new Chart(ctx, {
 });
 </script>
 	<script>
-var ctx = document.getElementById('exercise');
+var ctx = document.getElementById('exerciseGraph');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -100,7 +100,7 @@ var myChart = new Chart(ctx, {
 });
 </script>
 	<script>
-var ctx = document.getElementById('alcohol');
+var ctx = document.getElementById('alcoholGraph');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -128,7 +128,7 @@ var myChart = new Chart(ctx, {
 });
 </script>
 	<script>
-var ctx = document.getElementById('smoke');
+var ctx = document.getElementById('smokeGraph');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -156,7 +156,7 @@ var myChart = new Chart(ctx, {
 });
 </script>
 	<script>
-var ctx = document.getElementById('bmi');
+var ctx = document.getElementById('bmiGraph');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -183,24 +183,29 @@ var myChart = new Chart(ctx, {
   },
 });
 </script>
-</body>
 <script type="text/javascript">
 function entryClick(id){
 		if(id == 1){
-			document.getElementById('firstBox').style.display = "";
-			document.getElementById('secondBox').style.display = "none";
-			document.getElementById('thirdBox').style.display = "none";
-		}else if(id == 'select2'){
-			//フォーム
-			document.getElementById('firstBox').style.display = "none";
-			document.getElementById('secondBox').style.display = "";
-			document.getElementById('thirdBox').style.display = "none";
-		}else if(id == 'select3'){
-			document.getElementById('firstBox').style.display = "none";
-			document.getElementById('secondBox').style.display = "none";
-			document.getElementById('thirdBox').style.display = "";
+			document.getElementById('foodGraph').style.display = "";
+			document.getElementById('exerciseGraph').style.display = "none";
+			document.getElementById('alcoholGraph').style.display = "none";
+			document.getElementById('smokeGraph').style.display = "none";
+			document.getElementById('bmiGraph').style.display = "none";
+		}else if(id == 4){
+			document.getElementById('foodGraph').style.display = "";
+			document.getElementById('exerciseGraph').style.display = "none";
+			document.getElementById('alcoholGraph').style.display = "none";
+			document.getElementById('smokeGraph').style.display = "none";
+			document.getElementById('bmiGraph').style.display = "none";
+		}else if(id == 3){
+			document.getElementById('foodGraph').style.display = "";
+			document.getElementById('exerciseGraph').style.display = "none";
+			document.getElementById('alcoholGraph').style.display = "none";
+			document.getElementById('smokeGraph').style.display = "none";
+			document.getElementById('bmiGraph').style.display = "none";
 		}
 }
 // window.onload = entryChange;
 </script>
+</body>
 </html>
