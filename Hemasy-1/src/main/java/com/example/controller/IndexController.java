@@ -89,6 +89,16 @@ public class IndexController {
         return "menu";
     }
     
+    //アカウント管理で登録ボタンを押すと、メニュー画面に遷移
+    @RequestMapping(value = "/accountRegist", method = RequestMethod.POST)
+    public String accountRegist(@Validated  @ModelAttribute("index") registerForm form, BindingResult bindingResult, Model model) {
+    	if (bindingResult.hasErrors()) {
+            return "login";
+        }
+    	
+        return "menu";
+    }
+    
     //ハンバーガーメニューからアカウント管理へ
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public String account(@ModelAttribute("index") registerForm form, Model model) {

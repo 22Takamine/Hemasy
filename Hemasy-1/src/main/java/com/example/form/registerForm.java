@@ -27,6 +27,9 @@ public class registerForm {
     private String weight;
     
     private String bodyFat;
+    private String achievementId;
+    private String goalExerciseTime;
+    private String goalCalorise;
     private String rank;
     private String smoke;
     private String alcohol;
@@ -94,6 +97,30 @@ public class registerForm {
 
     public void setBodyFat(String bodyFat) {
         this.bodyFat = bodyFat;
+    }
+    
+    public String getAchievementId() {
+        return achievementId;
+    }
+
+    public void setAchievementId(String achievementId) {
+        this.achievementId = achievementId;
+    }
+    
+    public String getGoalExerciseTime() {
+        return goalExerciseTime;
+    }
+
+    public void setGoalExerciseTime(String goalExerciseTime) {
+        this.goalExerciseTime = goalExerciseTime;
+    }
+    
+    public String getGoalCalorise() {
+        return goalCalorise;
+    }
+
+    public void setGoalCalorise(String goalCalorise) {
+        this.goalCalorise = goalCalorise;
     }
     
     public String getRank() {
