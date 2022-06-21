@@ -127,10 +127,6 @@
 	  var parent = document.getElementById('food_bre');
 	  parent.appendChild(newDiv);
 
-<<<<<<< HEAD
-
-
-=======
 	  var button_data = document.createElement('button');
 	  button_data.type = 'button';
 	  button_data.id = i;
@@ -326,6 +322,5 @@
 	}
 	</script>
 	<script src="js/commons.js"></script>
->>>>>>> refs/heads/develop
 </body>
 </html>
