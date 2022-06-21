@@ -20,16 +20,20 @@
   	<p>${fn:escapeXml(msg)}</p>
   </c:if>
   <form:form action="result" modelAttribute="index" method="post">
+    
     <div>
       <label><fmt:message key="form.lbl.mail"/></label><form:input path="mail" type="text"/>
       <form:errors path="mail" cssStyle="color: red"/>
     </div>
+    
     <div>
       <label><fmt:message key="form.lbl.password"/></label><form:input path="pass" type="password"/>
       <form:errors path="pass" cssStyle="color: red"/>
     </div>
+    
     <form:button name="login"><fmt:message key="form.lbl.login"/></form:button>
     <form:button name="register"><fmt:message key="form.lbl.register"/></form:button>
+  
   </form:form>
 </body>
 </html>

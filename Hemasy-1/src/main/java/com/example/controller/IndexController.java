@@ -1,7 +1,10 @@
 package com.example.controller;
 
 
+
 import javax.servlet.http.HttpSession;
+import java.util.Locale;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -13,10 +16,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import com.example.dao.UserDao;
 import com.example.entity.Users;
+import com.example.entity.Login;
+
+
+
 import com.example.form.IndexForm;
 import com.example.form.registerForm;
+import com.example.service.LoginService;
 
 
 
@@ -26,6 +35,10 @@ public class IndexController {
 //    @Autowired
 //    ProductService productService;
 //    
+	
+	@Autowired
+	LoginService loginService;
+
     @Autowired
     MessageSource messageSource;
     
@@ -46,6 +59,7 @@ public class IndexController {
     	if (bindingResult.hasErrors()) {	
             return "login";
         }
+<<<<<<< HEAD
     	
     	String mail = form.getMail();
     	String pass  = form.getPass();
@@ -84,14 +98,27 @@ public class IndexController {
 		System.out.println(bmi.getBmi());
 		
         return "menu";
+=======
+   
+		Login list = loginService.findIdAndPass(form.getMail(),form.getPass());
+
+		if (list == null) {
+			// メッセージリソースファイルから、メッセージを取得
+			String errMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
+			model.addAttribute("msg", errMsg);
+
+			return "login";
+			
+		} else {
+			
+			return "menu";
+		}
+>>>>>>> origin/develop
     }
     
     //ログイン画面から、新規登録画面に遷移
     @RequestMapping(value = "/result", params="register", method = RequestMethod.POST)
-    public String register(@Validated  @ModelAttribute("index") registerForm form, BindingResult bindingResult, Model model) {
-    	if (bindingResult.hasErrors()) {
-            return "login";
-        }
+    public String register(@ModelAttribute("index") registerForm form, Model model) {
     	
         return "register";
     }
@@ -100,7 +127,6 @@ public class IndexController {
     @RequestMapping(value = "/record", method = RequestMethod.POST)
     public String record(@ModelAttribute("index") registerForm form, Model model) {
 
-    	
         return "record";
     }
     
