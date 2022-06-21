@@ -1,19 +1,14 @@
-package com.example.form;
+package com.example.entity;
 
 import java.sql.Date;
 
-import javax.validation.constraints.NotEmpty;
+/**
+ * productsテーブルのEntity
+ */
+public class User {
 
-
-public class registerForm {
-    
-    @NotEmpty
-    private String mail;
-    
-    @NotEmpty
-    private String pass;
-    
 	private String user_name;
+	private String mail;
 	private String password;
 	private Integer sex;
 	private Date birth;
@@ -24,12 +19,47 @@ public class registerForm {
 	private Integer smoke_flag;
     private Integer role;
 
-    public String getUser_name() {
+	public User() {
+
+	}
+
+	public User(String user_name, String mail, String password,Integer
+			sex,Date birth,Integer height,Date created_at,Integer rank_flag,Integer alcohol_flag,Integer smoke_flag,Integer role) {
+		this.user_name = user_name;
+		this.mail = mail;
+		this.password = password;
+		this.sex = sex;
+		this.birth = birth;
+		this.height = height;
+		this.created_at = created_at;
+		this.rank_flag = rank_flag;
+		this.alcohol_flag = alcohol_flag;
+		this.smoke_flag = smoke_flag;
+		this.role = role;
+	}
+		
+	public Integer getRole() {
+		return role;
+	}
+
+	public void setRole(Integer role) {
+		this.role = role;
+	}
+
+	public String getUser_name() {
 		return user_name;
 	}
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public String getPassword() {
@@ -96,28 +126,9 @@ public class registerForm {
 		this.smoke_flag = smoke_flag;
 	}
 
-	public Integer getRole() {
-		return role;
-	}
-
-	public void setRole(Integer role) {
-		this.role = role;
-	}
-
-	public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-    
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
+//	// 全フィールドが未入力かの判断
+//	public boolean isEmptyCondition() {
+//		return id == null && ParamUtil.isNullOrEmpty(name) && score == null;
+//	}
 }
+

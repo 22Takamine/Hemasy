@@ -13,22 +13,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.entity.Login;
+import com.example.entity.User;
 import com.example.form.IndexForm;
 import com.example.form.registerForm;
-import com.example.service.LoginService;
+import com.example.service.UserService;
 
 
 
 @Controller
 public class IndexController {
 
-//    @Autowired
-//    ProductService productService;
-//    
-	
+
 	@Autowired
-	LoginService loginService;
+	UserService userService;
 
     @Autowired
     MessageSource messageSource;
@@ -45,7 +42,7 @@ public class IndexController {
             return "login";
         }
    
-		Login list = loginService.findIdAndPass(form.getMail(),form.getPass());
+    	User list = userService.findIdAndPass(form.getMail(),form.getPass());
 
 		if (list == null) {
 			// メッセージリソースファイルから、メッセージを取得
@@ -63,7 +60,11 @@ public class IndexController {
     //ログイン画面から、新規登録画面に遷移
     @RequestMapping(value = "/result", params="register", method = RequestMethod.POST)
     public String register(@ModelAttribute("index") registerForm form, Model model) {
-    	
+
+		//User user = new User(form.getMail(), form.getPassword());
+
+//		userService.insert(user);
+		
         return "register";
     }
     
