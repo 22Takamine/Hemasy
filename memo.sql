@@ -30,8 +30,13 @@ select * from
 lists_and_records
 
 -- メインページで使う　統計に遷移する際に送るデータをとるsql
-select  sum(value2*value3) calocie, create_date 日付 from lists_and_records  where category = 2 and type = 1 group by create_date;
-
+select  sum(value2*value3) calorie
+, create_date AS day
+from lists_and_records  
+where category = 2 
+and type = 1 
+group by create_date
+ORDER by day;
 -- 月でくくって日ごとの消費カロリーを計算します
 select create_date AS day
 , sum(value2*value3) 摂取カロリー
@@ -67,4 +72,15 @@ LEFT JOIN achievement_unlock T2
 ON T1.achievement_id = T2.achievement_id
 AND T2.user_id = 1
 where user_id is null;
+
+-- BMI算出
+select T1.user_name, T1.height/100 身長, T2.value2, T2.value2/((T1.height/100)*(T1.height/100)) BMI , T2. create_date 日付
+from users T1
+Join lists_and_records T2
+ON T1.user_id = T2.user_id
+AND T2.category = 2
+AND T2.type = 5
+
+where T1.user_id =1
+order by T2.create_date desc;
 
