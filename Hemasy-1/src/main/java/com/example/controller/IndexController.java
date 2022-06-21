@@ -56,7 +56,7 @@ public class IndexController {
         return "record";
     }
     
-    //統計画面に遷移
+    //統計画面に遷移する
     @RequestMapping(value = "/statistics", method = RequestMethod.POST)
     public String statistics(@ModelAttribute("index") registerForm form, Model model) {
 
